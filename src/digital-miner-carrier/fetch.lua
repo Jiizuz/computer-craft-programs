@@ -1,5 +1,9 @@
 -- Fetches the latest version of the program from a repository
 
+-- Fetch utility functions
+fs.delete("fetch-repository.lua")
+shell.run("wget", "https://raw.githubusercontent.com/Jiizuz/computer-craft-programs/refs/heads/main/src/common/fetch-repository.lua", "fetch-repository.lua")
+
 local FetchRepository = require("fetch-repository")
 
 local args = { ... }
