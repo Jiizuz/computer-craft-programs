@@ -4,10 +4,12 @@
 
 --- Filters to apply to the items. If the item passes the filter, it will be dropped down i.e. destroyed
 local filters_to_apply = {
-    is_potion = function(item_detail)
+    -- is_potion filter
+    function(item_detail)
         return string.find(item_detail.name, "potion$")
     end,
-    is_damaged = function(item_detail)
+    -- is_damaged_tool filter
+    function(item_detail)
         return item_detail.damage and item_detail.maxDamage and item_detail.damage > 0
     end
 }
