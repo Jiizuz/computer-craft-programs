@@ -16,6 +16,33 @@ function find_item_slot(name)
     return 0
 end
 
+--- This function finds the first empty slot in the turtle's inventory
+--- If no empty slot is found, it returns 0
+function find_first_empty_slot()
+    for slot = 1, 16 do
+        if turtle.getItemCount(slot) == 0 then
+            return slot
+        end
+    end
+
+    return 0
+end
+
+--- Checks if the whole inventory is empty
+--- Returns true if the inventory is empty, and false otherwise
+function is_inventory_empty()
+    local slot = turtle.getSelectedSlot()
+
+    for i = 1, 16 do
+        if turtle.getItemCount(i) > 0 then
+            turtle.select(slot) -- Restore the selected slot
+            return false
+        end
+    end
+    turtle.select(slot) -- Restore the selected slot
+    return true
+end
+
 -- Peripheral functions
 
 --- This function finds the side of a peripheral with the given name
