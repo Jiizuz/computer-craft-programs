@@ -15,6 +15,6 @@ function place_and_dig()
 
     turtle.place()
     os.sleep(DIG_DELAY)
-    turtle.dig()
+    turtle.place()
     os.sleep(PLACE_DELAY)
 end
